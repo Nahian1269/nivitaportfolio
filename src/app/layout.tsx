@@ -1,11 +1,26 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import { Inter } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import { Belleza } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'Nivita Portfolio',
   description: "Tahmida Fathema Chowdhury Nivita's Professional Portfolio",
 };
+
+const fontBody = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+});
+
+const fontHeadline = Belleza({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-headline',
+});
+
 
 export default function RootLayout({
   children,
@@ -14,12 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Belleza&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">{children}
+      <body className={cn(fontBody.variable, fontHeadline.variable, "font-body antialiased")}>
+        {children}
         <Toaster />
       </body>
     </html>
