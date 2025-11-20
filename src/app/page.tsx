@@ -16,11 +16,11 @@ export default function Home() {
       <main className="flex-grow container mx-auto px-4 md:px-6">
         <Hero />
         <About />
+        <Education />
         <Skills />
         <Experience />
         <Projects />
         <ExtraCurricular />
-        <Education />
       </main>
       <Footer />
     </div>
